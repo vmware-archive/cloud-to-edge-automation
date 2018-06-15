@@ -1,0 +1,13 @@
+# Copyright © 2018 VMware, Inc. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+---
+# file: driver.yml - tasks to set up IoT components
+- hosts: azure-driver
+  roles:
+    - { role: vmware.azure-iot }
+
+- hosts: greengrass-driver
+  roles:
+    - { role: greengrass-init, tags: ['greengrass-init', 'greengrass-deploy'] }
+    - { role: greengrass-lambda, tags: ['greengrass-lambda'] }
+    - { role: greengrass-deploy, tags: ['greengrass-deploy'] }
