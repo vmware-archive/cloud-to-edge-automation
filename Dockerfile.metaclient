@@ -1,0 +1,21 @@
+# Copyright © 2018 VMware, Inc. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+FROM williamyeh/ansible:ubuntu16.04
+
+ADD . /code
+WORKDIR /code
+
+# Install Ansible inventory file
+RUN echo "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
+
+RUN pip install -r requirements.txt
+RUN ansible-galaxy install huxoll.azure-cli
+RUN echo "- hosts: dev" > setup.yml
+RUN echo "  roles:" >> setup.yml
+RUN echo "    - { role: huxoll.azure-cli }" >> setup.yml
+RUN echo "    - { role: awscli }" >> setup.yml
+RUN ansible-playbook -i inventory.local setup.yml \
+-e aws_access_key=FIXME -e aws_secret_key=FIXME
+RUN rm -rf ..?* .[!.]* *
+
+ENTRYPOINT ["/bin/bash"]
