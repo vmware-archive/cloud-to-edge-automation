@@ -2,6 +2,6 @@
 # SPDX-License-Identifier: Apache-2.0
 ---
 - name: vmware.azure-iot
-  src: https://gitlab.eng.vmware.com/vmworld2018/ansible-role-azure-iot/-/jobs/167214/artifacts/raw/packages/azure-iot.tar.gz?job=package_role&private_token=8j6mr5tYpCxy1TD_Aoaf
+  src: git+ssh://git@gitlab.eng.vmware.com/vmworld2018/ansible-role-azure-iot.git
 - name: vmware.azure-edge
-  src: https://gitlab.eng.vmware.com/vmworld2018/ansible-role-azure-edge/-/jobs/167368/artifacts/raw/packages/azure-edge.tar.gz?job=package_role&private_token=8j6mr5tYpCxy1TD_Aoaf
+  src: git+ssh://git@gitlab.eng.vmware.com/vmworld2018/ansible-role-azure-edge.git
