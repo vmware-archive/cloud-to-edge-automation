@@ -16,5 +16,5 @@ before_script:
 
 validate:
   script:
-    - > ansible-playbook site.yml -i inventory.local --check
+    - >- ansible-playbook site.yml -i inventory.local --check
         --skip-tag greengrass-core --skip-tag greengrass-deploy
