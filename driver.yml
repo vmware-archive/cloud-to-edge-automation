@@ -8,7 +8,7 @@
 
 - hosts: greengrass-driver
   roles:
-    - { role: awscli }
+    - { role: vmware.awscli }
     - { role: greengrass-init, tags: ['greengrass-init', 'greengrass-deploy'] }
     - { role: greengrass-lambda, tags: ['greengrass-lambda'] }
     - { role: greengrass-deploy, tags: ['greengrass-deploy'] }
