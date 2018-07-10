@@ -14,5 +14,5 @@
 - hosts: greengrass-core
   become: yes
   tags: greengrass,greengrass-core
-  roles:
-    - { role: greengrass-core }
+#  roles:
+#    - { role: greengrass-core }
