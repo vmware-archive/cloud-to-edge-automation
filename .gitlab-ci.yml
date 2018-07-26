@@ -14,8 +14,8 @@ before_script:
   - echo "IdentityFile ~/.ssh/id_rsa_gitlab" >> ~/.ssh/config
   - ansible-galaxy install -r requirements.yml -p ./roles
   - cd ./roles
-  - "git clone ssh://git@gitlab.eng.vmware.com/vmworld2018/ansible-role-azure-iot.git vmware.azure-iot"
-  - "git clone ssh://git@gitlab.eng.vmware.com/vmworld2018/ansible-role-azure-edge.git vmware.azure-edge"
+  - "git clone ssh://git@gitlab.com/vmworld2018/ansible-role-azure-iot.git vmware.azure-iot"
+  - "git clone ssh://git@gitlab.com/vmworld2018/ansible-role-azure-edge.git vmware.azure-edge"
   - cd ..
 
 validate:
