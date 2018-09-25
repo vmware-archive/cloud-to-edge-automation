@@ -3,6 +3,8 @@
 ---
 - name: vmware.ansible_role_greengrass_awscli
   src: vmware.ansible_role_greengrass_awscli
+- name: vmware.awscli
+  src: vmware.ansible_role_greengrass_awscli
 - name: huxoll.azure-cli
   src: huxoll.azure-cli
 - name: dumpall
