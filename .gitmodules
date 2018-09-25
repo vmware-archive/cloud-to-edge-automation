@@ -1,0 +1,6 @@
+[submodule "roles/vmware.azure-edge"]
+	path = roles/vmware.azure-edge
+	url = git@gitlab.com:vmworld2018/ansible-role-azure-edge.git
+[submodule "roles/vmware.azure-iot"]
+	path = roles/vmware.azure-iot
+	url = git@gitlab.com:vmworld2018/ansible-role-azure-iot.git
