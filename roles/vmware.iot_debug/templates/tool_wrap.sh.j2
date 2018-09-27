@@ -1,0 +1,11 @@
+#!/bin/bash
+LOGFILE=/tmp/az.log
+
+# This is a wrapper around the Azure command line to capture logs.
+REAL_AZ=`which -a az | tail -1`
+
+echo "az $@" >> $LOGFILE
+/usr/bin/time -f "%E" -o $LOGFILE $REAL_AZ $@
+AZ_RC=$?
+
+exit $AZ_RC

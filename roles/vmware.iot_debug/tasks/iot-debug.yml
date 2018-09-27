@@ -1,0 +1,37 @@
+# Copyright © 2018 VMware, Inc. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+---
+# These tasks wrap command line tools in a shell script for extra statistics.
+
+- name: Azure enabled, make Azure CLI wrapper
+  block:
+    - name: Set command name
+      set_fact: iot_cli=az
+
+    - name: Build wrapper script
+      template:
+        src: tool_wrap.sh.j2
+        dest: /usr/local/bin/az
+        backup: true
+      when: not ansible_check_mode
+  when:
+    - azure_iot_enable is defined and azure_iot_enable
+    - enable_ansible_debug is defined and enable_ansible_debug
+
+- name: AWS Greengrass enabled, make AWS CLI wrapper
+  block:
+    - name: Set command name
+      set_fact: iot_cli=aws
+
+    - name: Move aws command to /bin, deeper in the path
+      command: mv /usr/local/bin/aws /usr/bin/aws
+
+    - name: Build wrapper script
+      template:
+        src: tool_wrap.sh.j2
+        dest: /usr/local/bin/aws
+        backup: true
+      when: not ansible_check_mode
+  when:
+    - aws_greengrass_enable is defined and aws_greengrass_enable
+    - enable_ansible_debug is defined and enable_ansible_debug
