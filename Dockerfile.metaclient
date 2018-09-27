@@ -2,23 +2,27 @@
 # SPDX-License-Identifier: Apache-2.0
 FROM williamyeh/ansible:ubuntu16.04
 
-ADD . /code
-WORKDIR /code
+RUN apt-get update -qq && apt-get install -y curl
 
 # Install Ansible inventory file
 RUN echo "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
 
 # Pull down needed files.
+RUN apt-get install -y curl
 RUN curl -o /tmp/skyway-edge-amd64.ova https://cloud-images.ubuntu.com/xenial/current/xenial-server-cloudimg-amd64.ova
-RUN curl -o /usr/local/bin/govc.gz https://github.com/vmware/govmomi/releases/download/v0.18.0/govc_linux_amd64.gz
-RUN gunzip /usr/local/bin/govc.gz
+RUN curl -L -o /usr/local/bin/govc.gz https://github.com/vmware/govmomi/releases/download/v0.18.0/govc_linux_amd64.gz
+RUN gunzip /usr/local/bin/govc.gz && chmod a+x /usr/local/bin/govc
+
+ADD . /code
+WORKDIR /code
 
 RUN pip install -r requirements.txt
 RUN ansible-galaxy install huxoll.azure-cli
+RUN ansible-galaxy install vmware.ansible_role_greengrass_awscli
 RUN echo "- hosts: dev" > setup.yml
 RUN echo "  roles:" >> setup.yml
 RUN echo "    - { role: huxoll.azure-cli }" >> setup.yml
-RUN echo "    - { role: awscli }" >> setup.yml
+RUN echo "    - { role: vmware.ansible_role_greengrass_awscli }" >> setup.yml
 RUN ansible-playbook -i inventory.local setup.yml \
 -e aws_access_key=FIXME -e aws_secret_key=FIXME
 RUN rm -rf ..?* .[!.]* *
