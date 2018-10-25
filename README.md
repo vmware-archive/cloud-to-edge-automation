@@ -1,7 +1,6 @@
-# Skyway Automation
+# Cloud-to-Edge Automation
 
-
-This is an Ansible repo to contain automation for the Skyway project.  
+This is an Ansible repo to contain automation for the Cloud-toEdge project.   
 
 # Metaclient
 
