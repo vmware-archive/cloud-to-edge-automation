@@ -1,12 +1,12 @@
 # Copyright © 2018 VMware, Inc. All Rights Reserved.
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: MIT
 ---
 galaxy_info:
   role_name: iot_debug
   author: John Gardner
   description: Advanced debugging for IoT operations
   company: VMware
-  license: Apache-2.0
+  license: MIT
   min_ansible_version: 2.4
 
   platforms:

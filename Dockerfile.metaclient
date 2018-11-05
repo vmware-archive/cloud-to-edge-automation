@@ -1,5 +1,5 @@
 # Copyright © 2018 VMware, Inc. All Rights Reserved.
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: MIT
 FROM williamyeh/ansible:ubuntu16.04
 
 RUN apt-get update -qq && apt-get install -y curl git
