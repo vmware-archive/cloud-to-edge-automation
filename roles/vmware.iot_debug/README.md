@@ -4,15 +4,10 @@ IoT Debug
 This role provides features to debug IoT tools.  We wrap command line tools with
 logging and timing features for later aggregation.
 
-Build Status
-------------
-
-[![pipeline status](https://gitlab.eng.vmware.com/vmworld2018/ansible-role-azure-iot/badges/master/pipeline.svg)](https://gitlab.eng.vmware.com/vmworld2018/ansible-role-azure-iot/commits/master)
-
 Requirements
 ------------
 
-TBD
+No external projects are required.
 
 Role Variables
 --------------
