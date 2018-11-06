@@ -7,3 +7,7 @@
   src: vmware.ansible_role_greengrass_awscli
 - name: huxoll.azure-cli
   src: huxoll.azure-cli
+- name: vmware.azure-edge
+  src: vmware.azure_edge
+- name: vmware.azure-iot
+  src: vmware.azure_iot
