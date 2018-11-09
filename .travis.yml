@@ -1,0 +1,25 @@
+---
+stages:
+  - lint
+
+language: python
+
+sudo: required
+
+services:
+  - docker
+
+addons:
+  apt:
+    update: true
+
+before_install:
+  - ansible-galaxy install -r requirements.yml -p ./roles
+
+jobs:
+  include:
+    - stage: lint
+      script:
+        - >-
+          ansible-playbook site.yml -i inventory.local --check
+          --skip-tag greengrass-core --skip-tag greengrass-deploy
