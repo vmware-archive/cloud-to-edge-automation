@@ -13,11 +13,14 @@ addons:
   apt:
     update: true
 
+before_install:
+  - sudo pip install -r requirements.txt
+
 jobs:
   include:
     - stage: lint
       script:
         - ansible-galaxy install -r requirements.yml -p ./roles
         - >-
-          ansible-playbook site.yml -i inventory.local --check
+          sudo ansible-playbook site.yml -i inventory.local --check
           --skip-tag greengrass-core --skip-tag greengrass-deploy
