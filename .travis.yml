@@ -13,13 +13,11 @@ addons:
   apt:
     update: true
 
-before_install:
-  - ansible-galaxy install -r requirements.yml -p ./roles
-
 jobs:
   include:
     - stage: lint
       script:
+        - ansible-galaxy install -r requirements.yml -p ./roles
         - >-
           ansible-playbook site.yml -i inventory.local --check
           --skip-tag greengrass-core --skip-tag greengrass-deploy
