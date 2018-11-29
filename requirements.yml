@@ -5,6 +5,8 @@
   src: vmware.ansible_role_greengrass_awscli
 - name: vmware.awscli
   src: vmware.ansible_role_greengrass_awscli
+- name: vmware.greengrass-init
+  src: vmware.greengrass_init
 - name: huxoll.azure-cli
   src: huxoll.azure-cli
 - name: vmware.azure-edge
